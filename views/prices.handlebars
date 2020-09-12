@@ -1,0 +1,33 @@
+<table class="table table-striped table-bordered table-hover">
+
+
+    <div class="jumbotron">
+        <h1 class="display-4">
+            Crypto News
+        </h1>
+        <p class="lead">The latest news in the cryptocurrency world!</p>
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">24h High</th>
+                <th scope="col">24h Low</th>
+                <th scope="col">Market Cap</th>
+            </tr>
+        </thead>
+
+        {{#each price.DISPLAY}}
+
+
+
+
+        <tr>
+            <td>{{this.USD.FROMSYMBOL}}</td>
+            <td>{{ this.USD.PRICE }}</td>
+            <td>{{ this.USD.HIGHDAY }}</td>
+            <td>{{ this.USD.LOWDAY }}</td>
+            <td>{{ this.USD.MKTCAP }}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+</table>
