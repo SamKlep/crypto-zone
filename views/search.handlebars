@@ -1,0 +1,16 @@
+{{!-- Search --}}
+{{#each news.DISPLAY}}
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">
+            <h1 class="display-4">
+                {{@key}} | {{this.USD.FROMSYMBOL}}
+            </h1>
+            <p><strong>Price:</strong> {{this.USD.PRICE}}</p>
+            <p><strong>24h High:</strong> {{this.USD.HIGHDAY}}</p>
+            <p><strong>24h Low:</strong> {{this.USD.LOWDAY}}</p>
+            <p><strong>Market Cap:</strong> {{this.USD.MKTCAP}}</p>
+
+            {{/each}}
+    </div>
+</div>

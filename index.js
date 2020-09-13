@@ -35,8 +35,27 @@ function get_price(finishedPriceAPI) {
       }
 
       if (res.statusCode === 200) {
-        console.log(body);
+        // console.log(body);
         finishedPriceAPI(body);
+      }
+    }
+  );
+}
+
+function search_quote(finishedAPI, quote) {
+  request(
+    "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" +
+      quote +
+      "&tsyms=USD&api_key=407ce028abe941a672ad85f05150bc2b5794946edb2240e32d61e2e64f57d21e",
+    { json: true },
+    (err, res, body) => {
+      if (err) {
+        return console.log(err);
+      }
+
+      if (res.statusCode === 200) {
+        console.log(body);
+        finishedAPI(body);
       }
     }
   );
@@ -62,6 +81,16 @@ app.get("/prices", function (req, res) {
       price: donePriceAPI,
     });
   });
+});
+
+// Set handlebar index POST routes
+app.post("/", function (req, res) {
+  search_quote(function (doneAPI) {
+    // posted_stuff = req.body.stock_ticker;
+    res.render("search", {
+      news: doneAPI,
+    });
+  }, req.body.crypto_price);
 });
 
 // Set Static Folder
