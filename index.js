@@ -54,7 +54,7 @@ function search_quote(finishedAPI, quote) {
       }
 
       if (res.statusCode === 200) {
-        console.log(body);
+        // console.log(body);
         finishedAPI(body);
       }
     }
